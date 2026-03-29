@@ -1,73 +1,95 @@
-# React + TypeScript + Vite
+# 🎯 JWT Task Manager (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend application for the JWT Task Manager built with React, TypeScript, and Zustand for state management.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧠 Overview
 
-## React Compiler
+This application provides a clean interface for users to manage tasks, authenticate securely, and interact with the backend API.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+---
+🔗 **Live Project:**
+https://jwt-taskmanager-frontend.vercel.app
+---
 
-## Expanding the ESLint configuration
+## ⚙️ Key Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* 🔐 Authentication (signup, login, logout)
+* ✅ Create, update, delete, and complete tasks
+* ⚡ Lightweight state management using Zustand
+* 🔄 API integration with Axios
+* 🎯 Type-safe development using TypeScript
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🏗️ Project Structure
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash id="f3k9pl"
+src/
+ ├── api/
+ │    ├── auth.ts
+ │    ├── axios.ts
+ │    └── todo.ts
+ ├── components/
+ ├── pages/
+ ├── store/
+ │    ├── authStore.ts
+ │    └── todoStore.ts
+ ├── types/
+ ├── utils/
+ ├── App.tsx
+ ├── main.tsx
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧠 State Management
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+* Zustand for global state
+* Separate stores:
+
+  * `authStore` → authentication state
+  * `todoStore` → task management
+
+---
+
+## 🔌 API Integration
+
+* Axios instance configured in `api/axios.ts`
+* Modular API functions for auth and todo
+
+---
+
+## 🛠️ Tech Stack
+
+* React (Vite)
+* TypeScript
+* Zustand
+* TailwindCSS
+* Axios
+
+---
+
+## ⚙️ Setup Instructions
+
+```bash id="m2s8dk"
+# Clone repo
+git clone https://github.com/SahilYatam/JWT-Taskmanager-Frontend
+
+cd JWT-TaskManager-Frontend
+
+# Install dependencies
+npm install
+
+# Run app
+npm run dev
 ```
+
+---
+
+## 📌 Future Improvements
+
+* Improve error handling UX
+* Add filtering and sorting for tasks
+
